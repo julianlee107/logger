@@ -28,7 +28,6 @@ func (l *LogBase) writeLog(file *os.File, log *Log) {
 
 func (l *LogBase) formatLogger(level int, module, format string, args ...interface{}) *Log {
 	data := fmt.Sprintf(format, args...)
-	fmt.Printf(format, args...)
 	filename, funcName, lineNo := GetLineInfo(3)
 	return &Log{
 		timeStr:  time.Now().Format("2006-01-02 15:04:05.000"),

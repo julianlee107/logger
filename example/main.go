@@ -7,12 +7,15 @@ import (
 )
 
 func logic(logger logger.Logger) {
-	logger.LogDebug("jiuquhe %s %s", "123", "chongchongchong")
-	logger.LogTrace("dads2")
-	logger.LogInfo("dads3")
-	logger.LogWarn("dads4")
-	logger.LogError("sss")
-	logger.LogFatal("sss")
+	for {
+		logger.LogDebug("jiuquhe %s %s", "123", "chongchongchong")
+		logger.LogTrace("dads2")
+		logger.LogInfo("dads3")
+		logger.LogWarn("dads4")
+		logger.LogError("sss")
+		logger.LogFatal("sss")
+	}
+
 }
 
 func testGetLine() {
@@ -39,4 +42,5 @@ func main() {
 		return
 	}
 	logic(log)
+	log.Close()
 }
