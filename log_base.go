@@ -22,12 +22,13 @@ type LogBase struct {
 }
 
 func (l *LogBase) writeLog(file *os.File, log *Log) {
-	fmt.Fprintf(file, "%s%s%s(%s:%s:%d) %s",
+	fmt.Fprintf(file, "%s [%s]%s (%s:%s:%d) %s \n",
 		log.timeStr, log.levelStr, log.module, log.filename, log.funcName, log.lineNo, log.data)
 }
 
 func (l *LogBase) formatLogger(level int, module, format string, args ...interface{}) *Log {
-	data := fmt.Sprintf(format, args)
+	data := fmt.Sprintf(format, args...)
+	fmt.Printf(format, args...)
 	filename, funcName, lineNo := GetLineInfo(3)
 	return &Log{
 		timeStr:  time.Now().Format("2006-01-02 15:04:05.000"),

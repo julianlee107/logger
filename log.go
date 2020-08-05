@@ -11,3 +11,16 @@ type Logger interface {
 	Close()
 	SetLevel(level int)
 }
+
+func NewLogger(logType, level int, filename, module string) Logger {
+	var logger Logger
+	switch logType {
+	case LogTypeFile:
+		logger = NewLogFile(level, filename, module)
+	case LogTypeConsole:
+		logger = NewLogConsole(level, module)
+	default:
+		logger = NewLogFile(level, filename, module)
+	}
+	return logger
+}

@@ -26,7 +26,7 @@ func (f *LogFile) LogDebug(format string, args ...interface{}) {
 	if f.level > LogLevelDebug {
 		return
 	}
-	logData := f.formatLogger(LogLevelDebug, f.module, format)
+	logData := f.formatLogger(LogLevelDebug, f.module, format, args...)
 	f.writeLog(f.file, logData)
 
 }
@@ -35,7 +35,7 @@ func (f *LogFile) LogTrace(format string, args ...interface{}) {
 	if f.level > LogLevelTrace {
 		return
 	}
-	logData := f.formatLogger(LogLevelTrace, f.module, format)
+	logData := f.formatLogger(LogLevelTrace, f.module, format, args...)
 	f.writeLog(f.file, logData)
 
 }
@@ -44,7 +44,7 @@ func (f *LogFile) LogInfo(format string, args ...interface{}) {
 	if f.level > LogLevelInfo {
 		return
 	}
-	logData := f.formatLogger(LogLevelInfo, f.module, format)
+	logData := f.formatLogger(LogLevelInfo, f.module, format, args...)
 	f.writeLog(f.file, logData)
 
 }
@@ -53,7 +53,7 @@ func (f *LogFile) LogError(format string, args ...interface{}) {
 	if f.level > LogLevelError {
 		return
 	}
-	logData := f.formatLogger(LogLevelError, f.module, format)
+	logData := f.formatLogger(LogLevelError, f.module, format, args...)
 	f.writeLog(f.file, logData)
 }
 
@@ -61,7 +61,7 @@ func (f *LogFile) LogWarn(format string, args ...interface{}) {
 	if f.level > LogLevelWarn {
 		return
 	}
-	logData := f.formatLogger(LogLevelWarn, f.module, format)
+	logData := f.formatLogger(LogLevelWarn, f.module, format, args...)
 	f.writeLog(f.file, logData)
 }
 
@@ -69,7 +69,7 @@ func (f *LogFile) LogFatal(format string, args ...interface{}) {
 	if f.level > LogLevelFatal {
 		return
 	}
-	logData := f.formatLogger(LogLevelFatal, f.module, format)
+	logData := f.formatLogger(LogLevelFatal, f.module, format, args...)
 	f.writeLog(f.file, logData)
 
 }
